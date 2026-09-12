@@ -17,6 +17,21 @@ navLinks.querySelectorAll("a").forEach((a) =>
   })
 );
 
+// Rotating hero title
+const rots = Array.from(document.querySelectorAll("#rotator .rot"));
+if (rots.length > 1 && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  let i = 0;
+  setInterval(() => {
+    const cur = rots[i];
+    i = (i + 1) % rots.length;
+    const next = rots[i];
+    cur.classList.remove("is-active");
+    cur.classList.add("is-leaving");
+    next.classList.add("is-active");
+    setTimeout(() => cur.classList.remove("is-leaving"), 600);
+  }, 2800);
+}
+
 // Reveal on scroll
 const io = new IntersectionObserver(
   (entries) => {
