@@ -583,9 +583,11 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   .nav-links a { font-size: 24px; }
   .burger { display: block; z-index: 45; }
   .nav-sep { display: none; }
-  .hero { padding-top: 96px; }
-  .hero-photo { height: clamp(340px, 50vh, 520px); }
-  .hero-bottom { margin-top: -110px; }
+  .hero { padding-top: 96px; min-height: 0; }
+  .hero-photo { height: clamp(360px, 56vh, 560px); }
+  .hero-bottom { margin-top: -110px; padding-bottom: 24px; }
+  .manifesto { padding-top: 40px; }
+  .manifesto br { display: none; }
   .bento, .side-grid, .tools { grid-template-columns: 1fr; }
   .span-2, .span-1 { grid-column: span 1; }
   .pillars { grid-template-columns: 1fr; }
