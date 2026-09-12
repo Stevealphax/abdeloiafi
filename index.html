@@ -35,6 +35,7 @@
 
   <!-- ================= HERO ================= -->
   <section class="hero" id="top">
+    <canvas class="hero-sparkles" id="sparkles" aria-hidden="true"></canvas>
     <h1 class="hero-title" aria-label="Hi, I'm Abdelouafi — E-commerce Entrepreneur, Brand Builder, Digital Marketer, Graphic Designer, Store Operator">
       <span class="line1 float-in" style="--d:.05s" aria-hidden="true"><span class="thin">Hi, I'm</span> Abdelouafi</span>
       <span class="line2 float-in" style="--d:.2s" id="rotator" aria-hidden="true">
@@ -47,7 +48,28 @@
     </h1>
 
     <div class="hero-photo">
-      <img src="assets/hero.png" alt="Portrait of Abdelouafi Abajy" />
+      <div class="hero-stage" id="heroStage">
+        <img src="assets/hero.png" alt="Portrait of Abdelouafi Abajy" />
+        <!-- Edge-shine: traced silhouette outline that lights up around the cursor -->
+        <svg class="hero-strokes" viewBox="0 0 864 1152" aria-hidden="true" focusable="false">
+          <defs>
+            <path id="sil" d="M 839.7 840 L 838 828 L 836 816 L 833.7 804 L 830.7 792 L 827.7 780 L 825.7 768 L 825 756 L 823 744 L 819.3 732 L 816.3 720 L 812.3 708 L 807.7 696 L 801.7 684 L 789.7 672 L 765.3 660 L 734.3 648 L 705.3 636 L 679 624 L 651.7 612 L 623.3 600 L 597.3 588 L 581.7 576 L 574.7 564 L 572 552 L 567.7 540 L 563.3 528 L 563 516 L 563 504 L 563 492 L 564.7 480 L 569 468 L 572 456 L 575 444 L 577.3 432 L 583.7 420 L 600.7 408 L 606.7 396 L 609 384 L 612.3 372 L 616 360 L 619.3 348 L 619.7 336 L 618 324 L 614 312 L 597.7 300 L 591.7 288 L 592.3 276 L 593 264 L 593 252 L 593.3 240 L 593 228 L 592.3 216 L 590.3 204 L 587.7 192 L 584 180 L 578.3 168 L 572.3 156 L 564.3 144 L 554.3 132 L 541.3 120 L 525 108 L 504.3 96 L 474 84 L 442 72 L 422 78 L 380.7 90 L 356.7 102 L 343 114 L 331 126 L 320 138 L 310.7 150 L 301.7 162 L 294 174 L 289.3 186 L 286.7 198 L 286.3 210 L 286 222 L 287.3 234 L 289 246 L 290 258 L 290.3 270 L 292 282 L 293.3 294 L 295 306 L 293 318 L 280.3 330 L 275 342 L 274 354 L 274.3 366 L 278 378 L 283.7 390 L 288.3 402 L 291 414 L 296 426 L 316 438 L 326 450 L 330 462 L 332.3 474 L 333.7 486 L 334.3 498 L 333 510 L 327 522 L 316.7 534 L 307 546 L 298.3 558 L 286.7 570 L 273.7 582 L 256.3 594 L 233.3 606 L 211.7 618 L 189 630 L 165.7 642 L 143.3 654 L 117.7 666 L 89.7 678 L 62.7 690 L 37.3 702 L 22.3 714 L 15.7 726 L 11 738 L 7.3 750 L 5.3 762 L 2.7 774 L 0 786 L 4.3 798 L 2.3 810 L 0 822 L 0 834" />
+            <filter id="f-core" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.4" /></filter>
+            <filter id="f-mid" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="6" /></filter>
+            <filter id="f-wide" x="-90%" y="-90%" width="280%" height="280%"><feGaussianBlur stdDeviation="20" /></filter>
+            <linearGradient id="g-fade" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#fff" /><stop offset="0.6" stop-color="#fff" /><stop offset="0.74" stop-color="#000" />
+            </linearGradient>
+            <mask id="m-fade" maskUnits="userSpaceOnUse" x="0" y="0" width="864" height="1152"><rect width="864" height="1152" fill="url(#g-fade)" /></mask>
+          </defs>
+          <g mask="url(#m-fade)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+            <use href="#sil" stroke-width="26" opacity=".2" filter="url(#f-wide)" />
+            <use href="#sil" stroke-width="9" opacity=".5" filter="url(#f-mid)" />
+            <use href="#sil" stroke-width="5" opacity=".95" filter="url(#f-core)" />
+            <use href="#sil" stroke-width="2" />
+          </g>
+        </svg>
+      </div>
     </div>
 
     <div class="hero-bottom">

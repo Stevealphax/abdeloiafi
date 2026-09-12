@@ -115,7 +115,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
 
 /* hero entrance — staged float-in like the reference */
 .float-in { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; animation-delay: var(--d, 0s); }
-.hero-photo img { animation: photo-in 1.5s cubic-bezier(.2,.7,.2,1) .3s both; }
+.hero-stage { animation: photo-in 1.5s cubic-bezier(.2,.7,.2,1) .3s both; }
 @keyframes rise {
   from { opacity: 0; transform: translateY(24px); }
   to { opacity: 1; transform: none; }
@@ -135,11 +135,33 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; }
   -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
   mask-image: linear-gradient(180deg, #000 62%, transparent 100%);
 }
-.hero-photo img {
-  height: 130%; width: auto; max-width: none;
+/* the stage keeps the image and its traced outline perfectly aligned */
+.hero-stage {
+  position: relative; flex: 0 0 auto;
+  height: 130%; aspect-ratio: 864 / 1152;
   margin-top: -6%;
+}
+.hero-photo img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center top;
   filter: contrast(1.06);
+}
+/* edge-shine flashlight: outline revealed through a radial mask that follows the cursor */
+.hero-strokes {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2;
+  pointer-events: none; mix-blend-mode: screen; opacity: 0;
+  transition: opacity .35s cubic-bezier(.22,.61,.36,1);
+  will-change: mask-position, opacity;
+  --mx: -200px; --my: -200px; --r: 120px;
+  -webkit-mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, #000 30%, transparent 70%);
+          mask-image: radial-gradient(circle var(--r) at var(--mx) var(--my), #000 0%, #000 30%, transparent 70%);
+}
+.hero-stage.is-active .hero-strokes { opacity: 1; }
+/* AI sparkles canvas: intro wave, then sparkles along the outline near the cursor */
+.hero-sparkles {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,.4));
 }
 .hero::after {
   content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 40%;
